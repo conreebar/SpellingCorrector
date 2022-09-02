@@ -21,6 +21,11 @@ public class SpellCorrector implements ISpellCorrector{
         while (sc.hasNext()){
             dictionary.add(sc.next());
         }
+
+        //test
+        if(dictionary.find("yea") == null){
+            System.out.println("NO");
+        }
     }
 
     @Override
