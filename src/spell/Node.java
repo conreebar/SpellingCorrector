@@ -16,9 +16,6 @@ public class Node implements INode{
 
     @Override
     public Node[] getChildren() {
-        if(children == null){
-            createChildren();
-        }
         return children;
     }
     public void createChildren(){
