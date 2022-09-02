@@ -9,6 +9,10 @@ public class SpellCorrector implements ISpellCorrector{
     private Trie dictionary = new Trie();
     private Trie similarWords = new Trie();
 
+    //public void addLetter(){}
+
+    //public void switchLetter(){}
+
     @Override
     public void useDictionary(String dictionaryFileName) throws IOException {
         //make a file, scanner, loop
@@ -17,12 +21,20 @@ public class SpellCorrector implements ISpellCorrector{
         while (sc.hasNext()){
             dictionary.add(sc.next());
         }
-
-        //System.out.println(dictionary.getWordCount());
     }
 
     @Override
     public String suggestSimilarWord(String inputWord) {
+        //4 adjustments
+
+        //add a letter in between each
+        //ab
+        //aab, bab, cab...
+        //aab, abb, acb...
+        //aba, abb, abc, abd...
+
+
+
         return null;
     }
 }
