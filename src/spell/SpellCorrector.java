@@ -40,16 +40,15 @@ public class SpellCorrector implements ISpellCorrector{
         return words;
     }
     Set<String> insertionSet(String str, Set<String> words){
-        for(int iter = 0; iter < str.length(); iter++){
+        for(int iter = 0; iter < str.length() + 1; iter++){
             wordToAdd.delete(0, wordToAdd.length());
             wordToAdd.append(str.substring(0, iter));
             for(int iter2 = 0; iter2 < 26; iter2++){
-                wordToAdd.append((char) (iter2 + 'a'));//add a letter
+                wordToAdd.append((char)(iter2 + 'a'));//add a letter
                 wordToAdd.append(str.substring(iter));//the rest of the word (iter)
                 words.add(wordToAdd.toString());//add the word
                 wordToAdd.delete(iter, str.length() + 1); //delete back to beginning of iter + 1
             }
-            words.add(wordToAdd.toString());
         }
         return words;
     }
@@ -66,7 +65,6 @@ public class SpellCorrector implements ISpellCorrector{
                     wordToAdd.delete(iter, str.length()); //delete back to beginning of iter
                 }
             }
-            words.add(wordToAdd.toString());
         }
         return words;
     }
@@ -107,6 +105,8 @@ public class SpellCorrector implements ISpellCorrector{
         distance1 = alterationSet(inputWord,distance1);
         distance1 = transSet(inputWord, distance1);
         distance1 = insertionSet(inputWord, distance1);
+
+        System.out.println(distance1.toString());
 
         //check for good words
         for(String ob: distance1){

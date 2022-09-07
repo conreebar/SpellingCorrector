@@ -15,7 +15,7 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		
 		String dictionaryFileName = args[0];
-		String inputWord = "test";
+		String inputWord = "a";
 		
 		//
         //Create an instance of your corrector here

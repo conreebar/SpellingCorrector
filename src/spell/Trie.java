@@ -47,6 +47,13 @@ public class Trie implements ITrie{
 
     @Override
     public INode find(String word) {
+        if(word == null){
+            return null;
+        }
+        if(word == ""){
+            return null;
+        }
+
         Node[] node = root.getChildren();
         int index = 0;
         for(int iter = 0; iter < word.length()-1; iter++){
