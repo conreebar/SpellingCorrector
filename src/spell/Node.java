@@ -2,7 +2,7 @@ package spell;
 
 public class Node implements INode{
     private int value = 0;
-    private Node[] children;
+    private Node[] children = new Node[26];
 
     @Override
     public int getValue() {
@@ -17,8 +17,5 @@ public class Node implements INode{
     @Override
     public Node[] getChildren() {
         return children;
-    }
-    public void createChildren(){
-        children = new Node[26];
     }
 }

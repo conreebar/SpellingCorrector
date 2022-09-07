@@ -23,9 +23,7 @@ public class SpellCorrector implements ISpellCorrector{
         }
 
         //test
-        if(dictionary.find("yea") == null){
-            System.out.println("NO");
-        }
+        //System.out.println(dictionary.toString());
     }
 
     @Override
