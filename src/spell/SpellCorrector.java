@@ -1,7 +1,6 @@
 package spell;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.Set;
@@ -11,10 +10,6 @@ public class SpellCorrector implements ISpellCorrector{
     private Trie dictionary = new Trie();
     private StringBuilder wordToAdd = new StringBuilder();
 
-    //public void addLetter(){}
-
-    //public void switchLetter(){}
-
     @Override
     public void useDictionary(String dictionaryFileName) throws IOException {
         //make a file, scanner, loop
@@ -23,9 +18,6 @@ public class SpellCorrector implements ISpellCorrector{
         while (sc.hasNext()){
             dictionary.add(sc.next());
         }
-
-        //test
-        //System.out.println(dictionary.toString());
     }
     ///////////////////
     ///////////////////
@@ -106,8 +98,6 @@ public class SpellCorrector implements ISpellCorrector{
         distance1 = transSet(inputWord, distance1);
         distance1 = insertionSet(inputWord, distance1);
 
-        System.out.println(distance1.toString());
-
         //check for good words
         for(String ob: distance1){
             if(dictionary.find(ob) != null){
@@ -134,16 +124,18 @@ public class SpellCorrector implements ISpellCorrector{
                 }
             }
         }
+        //nothing found
         if(goodWords.isEmpty()){
             return null;
         }
-
+        //start with first word and try each
         String bestWord = (String) goodWords.toArray()[0];
         for(String ob: goodWords){
             if(dictionary.find(bestWord).getValue() < dictionary.find(ob).getValue()){
                 bestWord = ob;
             }
         }
+        //got one!!!!!!
         return bestWord.toLowerCase();
     }
 }

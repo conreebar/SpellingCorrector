@@ -31,7 +31,7 @@ public class Trie implements ITrie{
         int index = 0;
         for(int iter = 0; iter < word.length()-1; iter++){
             //gets index of node to move to next
-            index = word.charAt(iter) - 'a';
+            index = word.charAt(iter) - 'a'; // 'a' - 'a' = 0
             if(node[index] == null){node[index] = new Node(); nodeCount++;}
             node = node[index].getChildren();
         }
@@ -47,6 +47,7 @@ public class Trie implements ITrie{
 
     @Override
     public INode find(String word) {
+        //cases if the word is undesirable
         if(word == null){
             return null;
         }
@@ -54,6 +55,7 @@ public class Trie implements ITrie{
             return null;
         }
 
+        //actually find
         Node[] node = root.getChildren();
         int index = 0;
         for(int iter = 0; iter < word.length()-1; iter++){
@@ -63,7 +65,7 @@ public class Trie implements ITrie{
             node = node[index].getChildren();
         }
         //one last, dont care about children
-        index = word.charAt(word.length() -1) - 'a';
+        index = word.charAt(word.length() - 1) - 'a';
         if(node[index] == null){return null;}
         if(node[index].getValue() > 0){
             return node[index];
