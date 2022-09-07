@@ -56,7 +56,7 @@ public class Trie implements ITrie{
             node = node[index].getChildren();
         }
         //one last, dont care about children
-        index = word.charAt(word.length()-1) - 'a';
+        index = word.charAt(word.length() -1) - 'a';
         if(node[index] == null){return null;}
         if(node[index].getValue() > 0){
             return node[index];
